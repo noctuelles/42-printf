@@ -1,0 +1,4 @@
+printf_test.c
+ft_printf.prg
+*.o
+*.a

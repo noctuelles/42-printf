@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:03:42 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 01:47:14 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 13:31:01 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,17 +109,20 @@ static void	printf_apply_primary_flags(t_printf_info *info)
 
 void	printf_flags_compute_n_apply(t_printf_info *info)
 {
-	if (info->flags & PRECISION)
-		printf_compute_precision_add(info);
-	if (info->flags & SIGN || info->flags & SPACE
-		|| info->flags & ALTERNATE_FORM)
-		printf_apply_primary_flags(info);
-	if (info->flags & PRECISION)
-		printf_apply_precision(info);
-	if (info->flags & RIGHT_JUSTIFY || info->flags & LEFT_JUSTIFY
-		|| info->flags & ZERO_PADDING)
+	if (!(info->flags & PERCENT))
 	{
-		printf_compute_padding_len(info);
-		printf_apply_padding(info);
+		if (info->flags & PRECISION)
+			printf_compute_precision_add(info);
+		if (info->flags & SIGN || info->flags & SPACE
+			|| info->flags & ALTERNATE_FORM)
+			printf_apply_primary_flags(info);
+		if (info->flags & PRECISION)
+			printf_apply_precision(info);
+		if (info->flags & RIGHT_JUSTIFY || info->flags & LEFT_JUSTIFY
+			|| info->flags & ZERO_PADDING)
+		{
+			printf_compute_padding_len(info);
+			printf_apply_padding(info);
+		}
 	}
 }

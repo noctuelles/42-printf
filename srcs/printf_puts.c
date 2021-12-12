@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:17:20 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 01:45:13 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 13:08:20 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ void	printf_putchar(char c, t_printf_info *info)
 
 void	printf_putstr(const char *str, t_printf_info *info)
 {
-	ft_putstr(str);
-	info->wlen += ft_strlen(str);
+	size_t	len;
+
+	len = ft_strlen(str);
+	write(1, str, len);
+	info->wlen += len;
 }
 
 void	printf_put_buffers(t_printf_info *info)

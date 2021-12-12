@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 12:36:35 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 01:19:09 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 13:33:31 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ const char	*printf_parse(const char *fmt, va_list ap, t_printf_info *info)
 			return (NULL);
 		if (info->bufs.main[0] == '-')
 			info->flags |= NEGATIVE;
-		if (info->bufs.main[0] == '0')
+		else if (info->bufs.main[0] == '0')
 			info->flags |= ZERO_VAL;
 		if (info->width > 0 && !(info->flags & LEFT_JUSTIFY))
 			info->flags |= RIGHT_JUSTIFY;

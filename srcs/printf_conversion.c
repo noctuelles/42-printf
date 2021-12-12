@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:46:39 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/11 23:50:55 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 13:34:07 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int	printf_conversion(char spec, va_list ap, t_printf_info *info)
 	else if (spec == 'X')
 		info->bufs.main = ft_itoa_base(va_arg(ap, unsigned int), HEX_UPPERCASE);
 	else if (spec == '%')
+	{
 		info->bufs.main = ft_strnew_chars(1, '%');
+		info->flags |= PERCENT;
+	}
 	if (!info->bufs.main)
 		return (0);
 	return (1);

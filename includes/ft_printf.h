@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 12:32:08 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 02:11:31 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 13:19:38 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ enum e_printf_flags
 	PRECISION=0x40,
 	NEGATIVE=0x80,
 	ZERO_VAL=0x100,
-	NULL_STR=0x200
+	NULL_STR=0x200,
+	PERCENT=0x400
 };
 
 enum e_error_mask
@@ -97,7 +98,7 @@ typedef struct s_printf_info
 	size_t				wlen;
 	size_t				prcs_add;
 	size_t				pad_add;
-	uint16_t			flags : 10;
+	uint16_t			flags : 11;
 	size_t				width;
 	size_t				precision;
 }				t_printf_info;
