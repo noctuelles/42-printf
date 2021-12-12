@@ -15,11 +15,11 @@
 static void	printf_set_flags(char flag, t_printf_info *info)
 {
 	if (flag == '-')
-		info->flags |= LEFT_JUSTIFY;
+		info->flags |= L_JUST;
 	else if (flag == '0')
-		info->flags |= ZERO_PADDING;
+		info->flags |= ZERO_PAD;
 	else if (flag == '#')
-		info->flags |= ALTERNATE_FORM;
+		info->flags |= AF;
 	else if (flag == ' ')
 		info->flags |= SPACE;
 	else if (flag == '+')
@@ -62,10 +62,10 @@ static const char	*printf_parse_precision(const char *precision
 	i = 0;
 	if (precision[i] == '.')
 	{
-		if (info->flags & ZERO_PADDING)
-			info->flags ^= ZERO_PADDING | PRECISION;
+		if (info->flags & ZERO_PAD)
+			info->flags ^= ZERO_PAD | PRCS;
 		else
-			info->flags |= PRECISION;
+			info->flags |= PRCS;
 		i++;
 		if (ft_isdigit(precision[i]))
 			info->precision = ft_atoi(&precision[i]);
@@ -86,11 +86,11 @@ const char	*printf_parse(const char *fmt, va_list ap, t_printf_info *info)
 		if (!printf_conversion(info->conv, ap, info))
 			return (NULL);
 		if (info->bufs.main[0] == '-')
-			info->flags |= NEGATIVE;
+			info->flags |= NEG;
 		else if (info->bufs.main[0] == '0')
 			info->flags |= ZERO_VAL;
-		if (info->width > 0 && !(info->flags & LEFT_JUSTIFY))
-			info->flags |= RIGHT_JUSTIFY;
+		if (info->width > 0 && !(info->flags & L_JUST))
+			info->flags |= R_JUST;
 		printf_update_mlen(info);
 	}
 	else

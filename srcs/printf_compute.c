@@ -19,7 +19,7 @@ void	printf_compute_precision_add(t_printf_info *info)
 	else if (info->bufs.m_len <= info->precision)
 	{
 		info->prcs_add = info->precision - info->bufs.m_len;
-		if (info->flags & NEGATIVE)
+		if (info->flags & NEG)
 			info->prcs_add++;
 	}
 	else

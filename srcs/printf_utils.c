@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 14:27:40 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 02:21:14 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 18:45:10 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,13 @@ t_bool	printf_is_valid_flag(char c)
 	return (FALSE);
 }
 
-/*
- *	NOT USED
- */
-
-t_bool	printf_check_coherence(t_printf_info *info)
+t_bool	printf_is_nbr_conv(t_printf_info *info)
 {
-	if (info->conv == 'c' && (info->flags & c_ERRMASK))
-		return (FALSE);
-	else if (info->conv == 's' && (info->flags & s_ERRMASK))
-		return (FALSE);
-	else if (info->conv == 'd' && (info->flags & d_ERRMASK))
-		return (FALSE);
-	else if (info->conv == 'i' && (info->flags & i_ERRMASK))
-		return (FALSE);
-	else if (info->conv == 'u' && (info->flags & u_ERRMASK))
-		return (FALSE);
-	else if (info->conv == 'x' && (info->flags & x_ERRMASK))
-		return (FALSE);
-	else if (info->conv == 'X' && (info->flags & X_ERRMASK))
-		return (FALSE);
-	else
+	if (info->conv == 'd' || info->conv == 'i' || info->conv == 'u'
+		|| info->conv == 'x' || info->conv == 'X')
 		return (TRUE);
+	else
+		return (FALSE);
 }
 
 void	printf_flush_info(t_printf_info *info)

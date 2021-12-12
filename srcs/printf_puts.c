@@ -60,7 +60,7 @@ void	print_infos(t_printf_info info)
 			info.bufs.main,
 			info.bufs.right,
 			info.bufs.m_len);
-	puts("## PRECISION AND PADDING ##\n");
+	puts("## PRCS AND PADDING ##\n");
 	printf(	"\tprecision_add:\t%ld\n"
 			"\tpadding_add:\t%ld\n\n",
 			info.precision_add,

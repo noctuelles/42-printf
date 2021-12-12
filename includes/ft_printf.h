@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 12:32:08 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 13:19:38 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/12 18:41:33 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "libft.h"
+# include <stddef.h>
+# include <stdint.h>
+# include <stdarg.h>
+
 # define STR_NULL "(null)"
 
 # if defined (__APPLE__)
@@ -51,36 +56,20 @@
 # define HEX_UPPERCASE "0123456789ABCDEF"
 # define DECIMAL "0123456789"
 
-# include "libft.h"
-# include <stddef.h>
-# include <stdint.h>
-# include <stdarg.h>
-
 enum e_printf_flags
 {
 	NO_FLAGS=0x00,
-	LEFT_JUSTIFY=0x01,
-	RIGHT_JUSTIFY=0x02,
+	L_JUST=0x01,
+	R_JUST=0x02,
 	SIGN=0x04,
-	ALTERNATE_FORM=0x08,
+	AF=0x08,
 	SPACE=0x10,
-	ZERO_PADDING=0x20,
-	PRECISION=0x40,
-	NEGATIVE=0x80,
+	ZERO_PAD=0x20,
+	PRCS=0x40,
+	NEG=0x80,
 	ZERO_VAL=0x100,
 	NULL_STR=0x200,
 	PERCENT=0x400
-};
-
-enum e_error_mask
-{
-	c_ERRMASK = SPACE | SIGN | ALTERNATE_FORM | PRECISION | ZERO_PADDING,
-	s_ERRMASK = SIGN | ALTERNATE_FORM | ZERO_PADDING,
-	d_ERRMASK = ALTERNATE_FORM,
-	i_ERRMASK = ALTERNATE_FORM,
-	u_ERRMASK = SIGN | SPACE | ALTERNATE_FORM,
-	x_ERRMASK = SPACE | SIGN,
-	X_ERRMASK = SPACE | SIGN
 };
 
 typedef struct s_printf_buffers
@@ -117,7 +106,7 @@ int			ft_printf(const char *format, ...);
 void		printf_flush_info(t_printf_info *info);
 void		printf_update_mlen(t_printf_info *info);
 t_bool		printf_is_valid_flag(char c);
-t_bool		printf_check_coherence(t_printf_info *info);
+t_bool		printf_is_nbr_conv(t_printf_info *info);
 
 /* printf_apply.c */
 
