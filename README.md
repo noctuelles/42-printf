@@ -1,5 +1,7 @@
 ## ft_printf
 
+![An if tree : you'll need them, trust me.](https://upload.wikimedia.org/wikipedia/commons/7/7d/Tree_of_Totoro.jpg)
+
 The ft_printf project is, without bonus, a simple introduction to the variadic arguments in C.
 With bonuses, it became a very interesting project : you've to study the origin printf for hours, to even begin writing codes.
 
