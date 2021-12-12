@@ -6,7 +6,7 @@
 #    By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 23:22:06 by plouvel           #+#    #+#              #
-#    Updated: 2021/12/10 17:25:29 by plouvel          ###   ########.fr        #
+#    Updated: 2021/12/12 13:42:56 by plouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,6 @@ all:		$(NAME)
 makeft:
 			$(MAKE) -C libft all
 
-cleanft:
-			$(MAKE) -C libft clean
-
 fcleanft:
 			$(MAKE) -C libft fclean
 
@@ -67,4 +64,4 @@ re:			fclean all
 
 bonus:		$(ALL)
 
-.PHONY:		makeft cleanft fcleanft all clean fclean re
+.PHONY:		makeft fcleanft all clean fclean re bonus
