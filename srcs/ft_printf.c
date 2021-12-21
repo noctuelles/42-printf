@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 12:34:48 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 01:52:28 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/21 12:54:06 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_printf(const char *format, ...)
 			printf_flags_compute_n_apply(&info);
 			printf_put_buffers(&info);
 		}
+		else if (*format == '{')
+			format = printf_putansi(format, &info);
 		else
 			printf_putchar(*format, &info);
 		format++;

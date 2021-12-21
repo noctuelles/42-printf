@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 12:32:08 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/12 18:41:33 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/21 12:54:13 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,9 @@ void		print_infos(t_printf_info info);
 /* printf_conversion.c */
 
 int			printf_conversion(char spec, va_list ap, t_printf_info *info);
+
+/* printf_ansi.c */
+
+const char		*printf_putansi(const char *ansi, t_printf_info *info);
 
 #endif

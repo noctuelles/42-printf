@@ -6,7 +6,7 @@
 #    By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/01 23:22:06 by plouvel           #+#    #+#              #
-#    Updated: 2021/12/12 13:42:56 by plouvel          ###   ########.fr        #
+#    Updated: 2021/12/21 12:23:19 by plouvel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS		=	ft_printf.c			\
 				printf_conversion.c	\
 				printf_parsing.c	\
 				printf_puts.c		\
+				printf_ansi.c		\
 				printf_utils.c
 
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
