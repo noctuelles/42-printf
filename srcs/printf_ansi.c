@@ -6,7 +6,7 @@
 /*   By: plouvel <plouvel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:06:22 by plouvel           #+#    #+#             */
-/*   Updated: 2021/12/21 12:59:06 by plouvel          ###   ########.fr       */
+/*   Updated: 2021/12/21 13:01:55 by plouvel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	check_ansi_suite(const char *s)
 	ndigits = 0;
 	while (s[i] != '\0' && s[i] != '}')
 	{
-		if(ft_isdigit(s[i]) && ndigits < 3)
+		if (ft_isdigit(s[i]) && ndigits < 3)
 			ndigits++;
 		else if (s[i] == ';')
 			ndigits = 0;
@@ -72,5 +72,5 @@ const char	*printf_putansi(const char *ansi, t_printf_info *info)
 		return (NULL);
 	ft_putstr(ansi_out);
 	free(ansi_out);
-	return (&ansi[len + 1]); 
+	return (&ansi[len + 1]);
 }
